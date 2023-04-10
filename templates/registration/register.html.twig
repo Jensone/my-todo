@@ -3,7 +3,10 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="center">
+        <img class="logo-form" src="assets/images/my-todo-dark.png" alt="My ToDo">
+        <h1>Create an account</h1>
+    </div>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
@@ -14,4 +17,11 @@
 
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
+
+
+    <div class="center">
+        <p>You already have an account? <a href={{ path('app_login') }}>Sign In here</a>!</p>
+        <p>© 2023</p>
+    </div>
+
 {% endblock %}
