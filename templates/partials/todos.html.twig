@@ -1,0 +1,29 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>Task</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+            <th>Completed</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for todo in todos %}
+            <tr>
+                <td>{{ todo.task }}</td>
+                <td>{{ todo.priority }}</td>
+                <td>{{ todo.date|date('d/m/Y') }}</td>
+                <td>{{ todo.completion ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('valid', {'id': todo.id}) }}" class="btn-check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#17ba2a" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10Zm-.997-6l7.07-7.071l-1.413-1.414l-5.657 5.657l-2.829-2.829l-1.414 1.414L11.003 16Z"/></svg>                    </a>
+                    <a href="{{ path('delete', {'id': todo.id}) }}" class="btn-delete">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="#ba1717" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10ZM7 11v2h10v-2H7Z"/></svg>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
